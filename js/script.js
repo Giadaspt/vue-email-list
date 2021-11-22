@@ -36,13 +36,13 @@ const root = new Vue({
             this.loading = true; 
           }
     
-          console.log('dopo',resp);
-          console.log(resp.response);
+          // console.log('dopo',resp);
+          // console.log(resp.response);
         })
 
         .catch((error) => {
-          this.error= true;
-          console.log("gotta catch 'em all",error);
+          this.error = true;
+          // console.log("gotta catch 'em all",error);
         })
     }
 

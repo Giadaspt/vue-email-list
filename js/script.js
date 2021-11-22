@@ -1,17 +1,40 @@
+
+
 const root = new Vue({
-  el: "root",
+
+  el: '#root',
 
   data: {
+    emails: [],
+  },
+
+  mounted(){
+    this.getEmail();
 
   },
 
   methods: {
+    getEmail(){
+      this.emails = [];
+
+      for(let i = 0; i < 10; i++){
+        
+        axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+        .then((response) => {
+          // console.log(response);
+    
+          let resp = response.data;
+  
+          this.emails.push(resp.response)
+    
+          console.log('dopo',resp);
+          console.log(resp.response);
+          
+        });
+    }
 
   },
 
-  mounted(){
-
   },
-
 
 });

@@ -10,9 +10,13 @@
   
   <div id="root">
     <h1 v-if="error === true">ERRORE!</h1>
-    <ul>
+    <h2 ></h2>
+    <ul v-if="loading === false">
       <li v-for="email in emails">{{email}}</li>
     </ul>
+    <h2 v-else> Loading...... </h2>
+    <button @click=" getEmail">Genera le tue fake email preferite</button>
+
   </div>
 
 

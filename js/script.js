@@ -7,6 +7,7 @@ const root = new Vue({
   data: {
     emails: [],
     error: false,
+    loading: true,
   },
 
   mounted(){
@@ -16,7 +17,7 @@ const root = new Vue({
 
   methods: {
     getEmail(){
-
+      this.loading = true; 
       this.emails = [];
 
       for(let i = 0; i < 10; i++){
@@ -28,6 +29,12 @@ const root = new Vue({
           let resp = response.data;
   
           this.emails.push(resp.response)
+
+          if(this.emails.length === 10){
+            this.loading = false; 
+          } else {
+            this.loading = true; 
+          }
     
           console.log('dopo',resp);
           console.log(resp.response);

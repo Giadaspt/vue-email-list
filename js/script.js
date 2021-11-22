@@ -6,6 +6,7 @@ const root = new Vue({
 
   data: {
     emails: [],
+    error: false,
   },
 
   mounted(){
@@ -15,6 +16,7 @@ const root = new Vue({
 
   methods: {
     getEmail(){
+
       this.emails = [];
 
       for(let i = 0; i < 10; i++){
@@ -29,8 +31,12 @@ const root = new Vue({
     
           console.log('dopo',resp);
           console.log(resp.response);
-          
-        });
+        })
+
+        .catch((error) => {
+          this.error= true;
+          console.log("gotta catch 'em all",error);
+        })
     }
 
   },

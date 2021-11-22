@@ -9,7 +9,8 @@
 <body>
   
   <div id="root">
-    <ul >
+    <h1 v-if="error === true">ERRORE!</h1>
+    <ul>
       <li v-for="email in emails">{{email}}</li>
     </ul>
   </div>
